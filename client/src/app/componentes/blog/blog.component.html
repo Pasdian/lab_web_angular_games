@@ -1,0 +1,67 @@
+<!-- <hr />
+{{ formulario.valid }}
+<hr /> -->
+
+<form [formGroup]="formulario" (ngSubmit)="guardar()">
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Nombre de usuario</label>
+    <div class="col-8">
+      <input class="form-control" type="text" placeholder="Tu alias en el blog"
+              formControlName="nombreUsuario"
+              [ngClass]="{ 'is-invalid' : !formulario.get('nombreUsuario').valid && attemptedToPublish }" />
+    </div>
+  </div>
+  <div *ngIf="formulario.controls['nombreUsuario'].errors?.required && attemptedToPublish"
+        class="form-control-feedback">
+    Por favor indica un nombre de usuario
+  </div>
+  <div *ngIf="formulario.controls['nombreUsuario'].errors?.minlength && attemptedToPublish"
+        class="form-control-feedback">
+    Tu nombre de usuario debe ser de al menos 5 caracteres
+  </div>
+
+  <br>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Entrada</label>
+    <div class="col-8">
+      <textarea class="form-control" type="textarea" placeholder="Escribe unas palabras"
+              formControlName="entrada"
+              [ngClass]="{ 'is-invalid' : !formulario.get('entrada').valid && attemptedToPublish }" >
+              </textarea>
+    </div>
+  </div>
+  <div *ngIf="formulario.controls['entrada'].errors?.required && attemptedToPublish"
+        class="form-control-feedback">
+    Debes escribir una entrada antes de publicar
+  </div>
+  <div *ngIf="formulario.controls['entrada'].errors?.minlength && attemptedToPublish"
+        class="form-control-feedback">
+    Mínimo 10 caracteres
+  </div>
+  <div *ngIf="formulario.controls['entrada'].errors?.maxlength && attemptedToPublish"
+        class="form-control-feedback">
+    Máximo 30 caracteres
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary" [disabled]="!formulario.valid && attemptedToPublish">Guardar</button>
+    </div>
+  </div>
+
+</form>
+
+<hr />
+<h1>Posts</h1>
+<div class="row">
+  <div class="card" style="width: 18rem" *ngFor="let post of posts; let i = index">
+      <div class="card-body">
+          <h5 class="card-title">{{ post.nombreUsuario }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Publicado el: {{ fechaPublicacion | date:'shortDate' }} a las {{ fechaPublicacion | date:'shortTime' }}</h6>
+          <p class="card-text">{{ post.entrada }}</p>
+      </div>
+  </div>
+</div>
+
