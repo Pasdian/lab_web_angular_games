@@ -2,6 +2,27 @@ SELECT * FROM game_site_db.consoles;
 
 SELECT * FROM game_site_db.games;
 
+-- CREATE TABLES
+
+CREATE TABLE `games` (
+  `gameID` varchar(45) NOT NULL,
+  `gameName` varchar(15) NOT NULL,
+  `developer` varchar(45) NOT NULL,
+  `releaseDate` varchar(45) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `consoleID` varchar(45) NOT NULL,
+  PRIMARY KEY (`gameID`)
+)
+
+CREATE TABLE `consoles` (
+  `consoleID` varchar(45) NOT NULL,
+  `consoleName` varchar(45) NOT NULL,
+  `description` varchar(45) NOT NULL,
+  `features` varchar(45) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  PRIMARY KEY (`consoleID`)
+)
+
 -- CONSOLES INSERTS
 
 insert into consoles (consoleID, consoleName, description, features, image)
