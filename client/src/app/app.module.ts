@@ -17,6 +17,8 @@ import { ResconsolasComponent } from './componentes/buscador/resconsolas/rescons
 import { ResjuegosComponent } from './componentes/buscador/resjuegos/resjuegos.component';
 import { BlogComponent } from './componentes/blog/blog.component';
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
+import { FormConsolaComponent } from './componentes/administracion/form-consola/form-consola.component';
+import { FormJuegoComponent } from './componentes/administracion/form-juego/form-juego.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AdministracionComponent } from './componentes/administracion/administra
     ResconsolasComponent,
     ResjuegosComponent,
     BlogComponent,
-    AdministracionComponent
+    AdministracionComponent,
+    FormConsolaComponent,
+    FormJuegoComponent
   ],
   imports: [
     BrowserModule,

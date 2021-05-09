@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Agregar juego:</h2>
+    </div>
+  </div>
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div>
+
+
+      <div class="form-group row">
+        <div class="input-group col-md-2">
+          <label class="form-label">?ID del juego?</label>
+        </div>
+        <div class="input-group col-md-6">
+          <input class="form-control" type="text" formControlName="idJuego" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="input-group col-md-2">
+          <label class="form-label">Nombre:</label>
+        </div>
+        <div class="input-group col-md-6">
+          <input class="form-control" type="text" formControlName="nombreJuego" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="input-group col-md-2">
+          <label class="form-label">Desarrollador:</label>
+        </div>
+        <div class="input-group col-md-8">
+          <input class="form-control" type="text" formControlName="desarrollador" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="input-group col-md-2">
+          <label class="form-label">Fecha de lanzamiento:</label>
+        </div>
+        <div class="input-group col-md-8">
+          <input class="form-control" type="text" formControlName="fechaLanzamiento" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="input-group col-md-2">
+          <label class="form-label">URL de la imagen:</label>
+        </div>
+        <div class="input-group col-md-8">
+          <input class="form-control" type="text" formControlName="urlImagen" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="input-group col-md-2">
+          <label class="form-label">(ID) de la consola:</label>
+        </div>
+        <div class="input-group col-md-8">
+          <input class="form-control" type="text" formControlName="idConsola" />
+        </div>
+      </div>
+
+
+    </div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">&nbsp;</label>
+      <div class="input-group col-md-8">
+        <button type="submit" class="btn btn-outline-primary">Registrar</button>
+      </div>
+    </div>
+  </form>
+
+</div>

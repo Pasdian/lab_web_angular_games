@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+// import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-administracion',
@@ -10,7 +10,6 @@ export class AdministracionComponent implements OnInit {
 
   is_editing_console = true;
 
-  formulario: FormGroup;
 
   constructor() { }
 
@@ -21,8 +20,5 @@ export class AdministracionComponent implements OnInit {
     this.is_editing_console = !this.is_editing_console;
   }
 
-  onSubmit() {
-    console.log(this.formulario.value);
-  }
 
 }
