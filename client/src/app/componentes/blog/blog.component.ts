@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
 
   constructor() {
     this.formulario = new FormGroup({
-      'nombreUsuario' : new FormControl('', [Validators.required, Validators.minLength(5)]),
+      'nombreUsuario' : new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]),
       'entrada' : new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(30)]),
     })
   }
@@ -29,13 +29,11 @@ export class BlogComponent implements OnInit {
       console.log(this.formulario.valid);
       console.log(this.formulario.value);
       console.log(typeof(this.formulario.value));
-      this.posts.push(this.formulario.value)
       this.fechaPublicacion = new Date()
+      this.posts.push(this.formulario.value)
     } else {
       this.attemptedToPublish = true;
       console.log(this.formulario.valid);
-      console.log(this.formulario.value);
-      console.log(typeof(this.formulario.value));
     }
   }
 

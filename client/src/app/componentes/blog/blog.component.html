@@ -24,6 +24,10 @@
         class="form-control-feedback">
     Tu nombre de usuario debe ser de al menos 5 caracteres
   </div>
+  <div *ngIf="formulario.controls['nombreUsuario'].errors?.maxlength && attemptedToPublish"
+        class="form-control-feedback">
+    Tu nombre de usuario no puede exceder los 10 caracteres
+  </div>
 
   <br>
   <div class="form-group row">
