@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class FormConsolaComponent implements OnInit {
 
   formulario: FormGroup;
+  attemptedToPost = false;
 
   constructor() {
     this.formulario = new FormGroup({
@@ -24,7 +25,12 @@ export class FormConsolaComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formulario.value);
+    if (this.formulario.valid) {
+      console.log(this.formulario.value);
+    } else {
+      this.attemptedToPost = true;
+      console.log(this.formulario.valid);
+    }
   }
 
 }

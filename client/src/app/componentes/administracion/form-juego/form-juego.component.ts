@@ -32,8 +32,6 @@ export class FormJuegoComponent implements OnInit {
       this.attemptedToPost = true;
       console.log(this.formulario.valid);
     }
-
-    console.log(this.formulario.value);
   }
 
 }
