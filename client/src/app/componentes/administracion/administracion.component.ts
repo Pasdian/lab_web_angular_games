@@ -10,6 +10,8 @@ export class AdministracionComponent implements OnInit {
 
   is_editing_console = true;
 
+  formulario: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -17,6 +19,10 @@ export class AdministracionComponent implements OnInit {
 
   toggle_edit_status() {
     this.is_editing_console = !this.is_editing_console;
+  }
+
+  onSubmit() {
+    console.log(this.formulario.value);
   }
 
 }
