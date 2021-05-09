@@ -1,0 +1,18 @@
+<h1>Administrar...</h1>
+<hr>
+<h6>Agrega juegos y consolas a tu colección:</h6>
+
+<button type="submit" class="btn btn-outline-primary" (click)="toggle_edit_status()">Cambiar modo de registro</button>
+
+<hr>
+
+<div *ngIf="is_editing_console">
+  <h2>Administrar consola:</h2>
+</div>
+
+<div *ngIf="!is_editing_console">
+  <h2>Administrar juegos:</h2>
+</div>
+
+<!-- <button type="submit" class="btn btn-outline-primary" [disabled]="!formulario.valid && attemptedToPublish">Guardar</button> -->
+<button type="submit" class="btn btn-outline-primary" [disabled]="true">Guardar</button>
