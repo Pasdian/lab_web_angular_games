@@ -16,6 +16,12 @@ CREATE TABLE `consoles` (
   `features` varchar(45) NOT NULL,
   `image` varchar(100) NOT NULL
 );
+CREATE TABLE `Blog_Entries` (
+  `entryID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `entryDate` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `username` VARCHAR(10) NOT NULL,
+  `entryText` VARCHAR(140)
+);
 -- CONSOLES INSERTS
 insert into consoles (consoleName, description, features, image)
 values (

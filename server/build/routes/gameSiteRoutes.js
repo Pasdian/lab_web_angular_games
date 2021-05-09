@@ -19,6 +19,7 @@ class GameSiteRoutes {
         this.router.post('/juegos', gameSiteController_1.default.createGame);
         this.router.get("/resconsolas", gameSiteController_1.default.findConsole);
         this.router.get("/resjuegos", gameSiteController_1.default.findGame);
+        this.router.post('/blog', gameSiteController_1.default.createPost);
     }
 }
 const gameSiteRoutes = new GameSiteRoutes();

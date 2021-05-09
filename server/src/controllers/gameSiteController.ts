@@ -81,6 +81,13 @@ class GamesSiteController {
     }
     res.status(404).json({ message: 'Console does not exist' });
   }
+
+  // Blog Methods
+  public async createPost(req: Request, res: Response): Promise<void> {
+    await pool.query('INSERT INTO Blog_Entries set ?', [req.body]);
+    res.json({ message: 'Post Created' });
+  }
+
 }
 
 const gamesSiteController = new GamesSiteController();

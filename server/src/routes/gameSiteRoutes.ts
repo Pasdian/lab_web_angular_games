@@ -21,7 +21,7 @@ class GameSiteRoutes {
     this.router.get("/resconsolas", gamesSiteController.findConsole);
     this.router.get("/resjuegos", gamesSiteController.findGame);
 
-
+    this.router.post('/blog', gamesSiteController.createPost)
   }
 }
 
