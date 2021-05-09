@@ -14,7 +14,9 @@
           <label class="form-label">?ID del juego?</label>
         </div>
         <div class="input-group col-md-6">
-          <input class="form-control" type="text" formControlName="idJuego" />
+          <input class="form-control" type="text"
+                 formControlName="idJuego"
+                 [ngClass]="{ 'is-invalid' : !formulario.get('idJuego').valid && attemptedToPost}" />
         </div>
       </div>
 
@@ -23,7 +25,9 @@
           <label class="form-label">Nombre:</label>
         </div>
         <div class="input-group col-md-6">
-          <input class="form-control" type="text" formControlName="nombreJuego" />
+          <input class="form-control" type="text"
+                 formControlName="nombreJuego"
+                 [ngClass]="{ 'is-invalid' : !formulario.get('nombreJuego').valid && attemptedToPost}" />
         </div>
       </div>
 
@@ -32,7 +36,9 @@
           <label class="form-label">Desarrollador:</label>
         </div>
         <div class="input-group col-md-8">
-          <input class="form-control" type="text" formControlName="desarrollador" />
+          <input class="form-control" type="text"
+                 formControlName="desarrollador"
+                 [ngClass]="{ 'is-invalid' : !formulario.get('desarrollador').valid && attemptedToPost}" />
         </div>
       </div>
 
@@ -41,7 +47,9 @@
           <label class="form-label">Fecha de lanzamiento:</label>
         </div>
         <div class="input-group col-md-8">
-          <input class="form-control" type="text" formControlName="fechaLanzamiento" />
+          <input class="form-control" type="text"
+                 formControlName="fechaLanzamiento"
+                 [ngClass]="{ 'is-invalid' : !formulario.get('fechaLanzamiento').valid && attemptedToPost}" />
         </div>
       </div>
 
@@ -50,7 +58,9 @@
           <label class="form-label">URL de la imagen:</label>
         </div>
         <div class="input-group col-md-8">
-          <input class="form-control" type="text" formControlName="urlImagen" />
+          <input class="form-control" type="text"
+                 formControlName="urlImagen"
+                 [ngClass]="{ 'is-invalid' : !formulario.get('urlImagen').valid && attemptedToPost}" />
         </div>
       </div>
 
@@ -59,7 +69,9 @@
           <label class="form-label">(ID) de la consola:</label>
         </div>
         <div class="input-group col-md-8">
-          <input class="form-control" type="text" formControlName="idConsola" />
+          <input class="form-control" type="text"
+                 formControlName="idConsola"
+                 [ngClass]="{ 'is-invalid' : !formulario.get('idConsola').valid && attemptedToPost}" />
         </div>
       </div>
 

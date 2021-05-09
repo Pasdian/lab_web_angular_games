@@ -9,15 +9,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class FormJuegoComponent implements OnInit {
 
   formulario: FormGroup;
+  attemptedToPost = false;
 
   constructor() {
     this.formulario = new FormGroup({
-      'idJuego' : new FormControl(),
-      'nombreJuego' : new FormControl(),
-      'desarrollador' : new FormControl(),
-      'fechaLanzamiento' : new FormControl(),
-      'urlImagen' : new FormControl(),
-      'idConsola' : new FormControl()
+      'idJuego' : new FormControl('', Validators.required),
+      'nombreJuego' : new FormControl('', Validators.required),
+      'desarrollador' : new FormControl('', Validators.required),
+      'fechaLanzamiento' : new FormControl('', Validators.required),
+      'urlImagen' : new FormControl('', Validators.required),
+      'idConsola' : new FormControl('', Validators.required)
     })
   }
 
@@ -25,6 +26,13 @@ export class FormJuegoComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.formulario.valid) {
+      console.log(this.formulario.value);
+    } else {
+      this.attemptedToPost = true;
+      console.log(this.formulario.valid);
+    }
+
     console.log(this.formulario.value);
   }
 

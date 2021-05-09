@@ -12,11 +12,11 @@ export class FormConsolaComponent implements OnInit {
 
   constructor() {
     this.formulario = new FormGroup({
-      'idConsola' : new FormControl(),
-      'nombre' : new FormControl(),
-      'descripcion' : new FormControl(),
-      'caracteristicas' : new FormControl(),
-      'urlImagen' : new FormControl()
+      'idConsola' : new FormControl('', Validators.required),
+      'nombre' : new FormControl('', Validators.required),
+      'descripcion' : new FormControl('', Validators.required),
+      'caracteristicas' : new FormControl('', Validators.required),
+      'urlImagen' : new FormControl('', Validators.required)
     })
   }
 
