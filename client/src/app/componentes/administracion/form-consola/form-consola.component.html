@@ -19,6 +19,10 @@
                  [ngClass]="{ 'is-invalid' : !formulario.get('idConsola').valid && attemptedToPost }" />
         </div>
       </div>
+      <div *ngIf="formulario.controls['idConsola'].errors?.required && attemptedToPost"
+        class="form-control-feedback">
+          El campo no puede quedar en blanco
+      </div>
 
       <div class="form-group row">
         <div class="input-group col-md-2">
@@ -29,6 +33,10 @@
                  formControlName="nombre"
                  [ngClass]="{ 'is-invalid' : !formulario.get('nombre').valid && attemptedToPost }" />
         </div>
+      </div>
+      <div *ngIf="formulario.controls['nombre'].errors?.required && attemptedToPost"
+        class="form-control-feedback">
+          El campo no puede quedar en blanco
       </div>
 
       <div class="form-group row">
@@ -41,6 +49,14 @@
                  [ngClass]="{ 'is-invalid' : !formulario.get('descripcion').valid && attemptedToPost }" />
         </div>
       </div>
+      <div *ngIf="formulario.controls['descripcion'].errors?.required && attemptedToPost"
+        class="form-control-feedback">
+          El campo no puede quedar en blanco
+      </div>
+      <div *ngIf="formulario.controls['descripcion'].errors?.maxlength && attemptedToPost"
+        class="form-control-feedback">
+          Mantenlo debajo de 30 caracteres, por favor
+      </div>
 
       <div class="form-group row">
         <div class="input-group col-md-2">
@@ -52,6 +68,14 @@
                  [ngClass]="{ 'is-invalid' : !formulario.get('caracteristicas').valid && attemptedToPost }" />
         </div>
       </div>
+      <div *ngIf="formulario.controls['caracteristicas'].errors?.required && attemptedToPost"
+        class="form-control-feedback">
+          El campo no puede quedar en blanco
+      </div>
+      <div *ngIf="formulario.controls['caracteristicas'].errors?.maxlength && attemptedToPost"
+        class="form-control-feedback">
+          Mantenlo debajo de 30 caracteres, por favor
+      </div>
 
       <div class="form-group row">
         <div class="input-group col-md-2">
@@ -62,6 +86,10 @@
                  formControlName="urlImagen"
                  [ngClass]="{ 'is-invalid' : !formulario.get('urlImagen').valid && attemptedToPost }" />
         </div>
+      </div>
+      <div *ngIf="formulario.controls['urlImagen'].errors?.required && attemptedToPost"
+        class="form-control-feedback">
+          El campo no puede quedar en blanco
       </div>
 
 

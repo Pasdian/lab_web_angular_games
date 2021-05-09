@@ -15,8 +15,8 @@ export class FormConsolaComponent implements OnInit {
     this.formulario = new FormGroup({
       'idConsola' : new FormControl('', Validators.required),
       'nombre' : new FormControl('', Validators.required),
-      'descripcion' : new FormControl('', Validators.required),
-      'caracteristicas' : new FormControl('', Validators.required),
+      'descripcion' : new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      'caracteristicas' : new FormControl('', [Validators.required, Validators.maxLength(30)]),
       'urlImagen' : new FormControl('', Validators.required)
     })
   }
