@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsolasService, Juego } from '../../servicios/consolas.service';
+import { ConsolasService } from '../../servicios/consolas.service';
+import { ActivatedRoute } from "@angular/router";
+import { Game } from "../../models/Game";
 
 @Component({
   selector: 'app-juegosconsola',
@@ -8,13 +10,20 @@ import { ConsolasService, Juego } from '../../servicios/consolas.service';
 })
 export class JuegosconsolaComponent implements OnInit {
 
-  juegos: Juego[] = [];
+  games: any = [];
 
-  constructor(private consolasService: ConsolasService) { }
+  constructor(private consolasService: ConsolasService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.juegos = this.consolasService.obtieneJuegos();
-    console.log(this.juegos);
+    this.activatedRoute.params.subscribe(params =>{
+      console.log(params['id']);
+      this.consolasService.getConsoleGames(params['id']).subscribe(
+        res => {
+          this.games = res
+        },
+        err => console.log(err)
+      );
+    })
   }
 
 }

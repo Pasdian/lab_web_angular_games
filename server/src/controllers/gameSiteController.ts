@@ -33,6 +33,11 @@ class GamesSiteController {
     res.status(404).json({ message: 'Console does not exist' });
   }
 
+  public async createConsole(req: Request, res: Response): Promise<void> {
+    await pool.query('INSERT INTO console set ?', [req.body]);
+    res.json({ message: 'Console Created' });
+  }
+
   // Games Methods
   public async listGames(req: Request, res: Response): Promise<any> {
     const games = await pool.query('SELECT * FROM games;');
@@ -42,7 +47,8 @@ class GamesSiteController {
   public async getGame(req: Request, res: Response): Promise<any> {
     const { id } = req.params;
     const games = await pool.query('SELECT * FROM games where gameID = ?', [
-      id]);
+      id,
+    ]);
     if (games.length > 0) {
       return res.json(games[0]);
     }
@@ -88,6 +94,10 @@ class GamesSiteController {
     res.json({ message: 'Post Created' });
   }
 
+  public async getPosts(req: Request, res: Response): Promise<any> {
+    const posts = await pool.query('SELECT * FROM Blog_Entries;');
+    res.json(posts);
+  }
 }
 
 const gamesSiteController = new GamesSiteController();

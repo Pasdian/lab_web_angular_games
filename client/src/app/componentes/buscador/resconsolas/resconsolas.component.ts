@@ -7,7 +7,7 @@ import { ConsolasService } from '../../../servicios/consolas.service';
   styleUrls: ['./resconsolas.component.css'],
 })
 export class ResconsolasComponent implements OnInit {
-  consolas: any[] = [];
+  consolas: any;
   palabrasBusqueda: string;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -17,7 +17,7 @@ export class ResconsolasComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       console.log(params['palabrasBusqueda']);
       this.palabrasBusqueda = params['palabrasBusqueda'];
-      this.consolas = this.consolasService.buscarConsolas(
+      this.consolas = this.consolasService.findConsole(
         this.palabrasBusqueda
       );
       console.log(this.consolas);

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { ConsolasService, Juego } from "../../servicios/consolas.service";
+import { GamesService } from "../../servicios/games.service";
+import { Game } from "../../models/Game";
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-juego',
@@ -9,13 +12,18 @@ import { ConsolasService, Juego } from "../../servicios/consolas.service";
 })
 export class JuegoComponent implements OnInit {
 
-  juego:Juego;
+  game:Game;
 
-  constructor(private activatedRoute: ActivatedRoute, private consolasService: ConsolasService) {
+  constructor(private activatedRoute: ActivatedRoute, private gamesService: GamesService) {
 
     this.activatedRoute.params.subscribe(params => {
       console.log(params['id']);
-      this.juego = this.consolasService.obtieneJuego(params['id']);
+      this.gamesService.getGame(params['id']).subscribe(
+        res => {
+          this.game = res
+        },
+        err => console.error(err)
+      )
     })
    }
 

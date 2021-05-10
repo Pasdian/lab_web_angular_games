@@ -19,6 +19,7 @@ import { BlogComponent } from './componentes/blog/blog.component';
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
 import { FormConsolaComponent } from './componentes/administracion/form-consola/form-consola.component';
 import { FormJuegoComponent } from './componentes/administracion/form-juego/form-juego.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FormJuegoComponent } from './componentes/administracion/form-juego/form
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     APP_ROUTING
   ],
   providers: [

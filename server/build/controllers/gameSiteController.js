@@ -41,6 +41,12 @@ class GamesSiteController {
             res.status(404).json({ message: 'Console does not exist' });
         });
     }
+    createConsole(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield database_1.default.query('INSERT INTO console set ?', [req.body]);
+            res.json({ message: 'Console Created' });
+        });
+    }
     // Games Methods
     listGames(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -52,7 +58,7 @@ class GamesSiteController {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             const games = yield database_1.default.query('SELECT * FROM games where gameID = ?', [
-                id
+                id,
             ]);
             if (games.length > 0) {
                 return res.json(games[0]);
@@ -95,6 +101,12 @@ class GamesSiteController {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO Blog_Entries set ?', [req.body]);
             res.json({ message: 'Post Created' });
+        });
+    }
+    getPosts(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const posts = yield database_1.default.query('SELECT * FROM Blog_Entries;');
+            res.json(posts);
         });
     }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsolasService, Consola } from '../../servicios/consolas.service';
+import { ConsolasService } from '../../servicios/consolas.service';
+import { Console } from "../../models/Console";
 
 @Component({
   selector: 'app-consolas',
@@ -8,14 +9,20 @@ import { ConsolasService, Consola } from '../../servicios/consolas.service';
 })
 export class ConsolasComponent implements OnInit {
 
-  consolas: Consola[] = [];
+  consolas: Console[];
 
 
   constructor(private consolasService: ConsolasService) { }
 
   ngOnInit() {
-    this.consolas = this.consolasService.obtieneConsolas();
-    console.log(this.consolas);
+    this.consolasService.getConsoles().subscribe(
+      res => {
+        this.consolas = res
+      },
+      err => {
+        console.log(err)
+      }
+    )
   }
 
 }

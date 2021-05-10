@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { ConsolasService, Consola } from "../../servicios/consolas.service";
+import { ConsolasService } from "../../servicios/consolas.service";
+import { Console } from "../../models/Console";
 
 @Component({
   selector: 'app-infoconsola',
@@ -9,13 +10,18 @@ import { ConsolasService, Consola } from "../../servicios/consolas.service";
 })
 export class InfoconsolaComponent implements OnInit {
 
-  consola:Consola;
+  consola:Console;
 
   constructor(private activatedRoute: ActivatedRoute, private consolasService:ConsolasService) {
 
     this.activatedRoute.params.subscribe(params =>{
       console.log(params['id']);
-      this.consola = this.consolasService.obtieneConsola(params['id']);
+      this.consolasService.getConsole(params['id']).subscribe(
+        res => {
+          this.consola = res
+        },
+        err => console.log(err)
+      );
     })
   }
 

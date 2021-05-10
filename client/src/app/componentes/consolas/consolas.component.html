@@ -2,11 +2,12 @@
 <hr>
 <div class="row">
   <div class="card" style="width: 18rem;" *ngFor="let consola of consolas; let i = index">
-    <img class="card-img-top" [src]="consola.imagen" [alt]="consola.nombre">
+    <img class="card-img-top" [src]="consola.image" [alt]="consola.consoleName">
     <div class="card-body">
-      <h5 class="card-title">{{ consola.nombre }}</h5>
-      <p class="card-text">{{ consola.descripcion }}</p>
-      <a [routerLink]="['/infoconsola', i]" class="btn btn-primary">Información</a>
+      <h5 class="card-title">{{ consola.consoleName }}</h5>
+      <p class="card-text">{{ consola.description }}</p>
+      <p class="card-text">{{ consola.features }}</p>
+      <a [routerLink]="['/infoconsola', consola.consoleID]" class="btn btn-primary">Información</a>
     </div>
   </div>
 </div>

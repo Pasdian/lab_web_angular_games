@@ -1,7 +1,8 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">{{ consola.nombre }}</h1>
-    <p class="lead">{{ consola.caracteristicas }}</p>
+    <h1 class="display-4">{{ consola.consoleName }}</h1>
+    <p class="lead">{{ consola.description}}</p>
+    <p class="lead">{{ consola.features}}</p>
   </div>
   <a [routerLink]="['/juegosconsola']" class="btn btn-primary">Juegos</a>
 </div>
