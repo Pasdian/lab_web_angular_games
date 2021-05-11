@@ -11,27 +11,13 @@
 
       <div class="form-group row">
         <div class="input-group col-md-2">
-          <label class="form-label">?ID del juego?</label>
-        </div>
-        <div class="input-group col-md-6">
-          <input class="form-control" type="text"
-                 formControlName="idJuego"
-                 [ngClass]="{ 'is-invalid' : !formulario.get('idJuego').valid && attemptedToPost}" />
-        </div>
-      </div>
-      <div *ngIf="formulario.controls['idJuego'].errors?.required && attemptedToPost"
-        class="form-control-feedback">
-          El campo no puede quedar en blanco
-      </div>
-
-      <div class="form-group row">
-        <div class="input-group col-md-2">
           <label class="form-label">Nombre:</label>
         </div>
         <div class="input-group col-md-6">
           <input class="form-control" type="text"
                  formControlName="nombreJuego"
-                 [ngClass]="{ 'is-invalid' : !formulario.get('nombreJuego').valid && attemptedToPost}" />
+                 [ngClass]="{ 'is-invalid' : !formulario.get('nombreJuego').valid && attemptedToPost}" 
+                 [(ngModel)] = "game.gameName"/>
         </div>
       </div>
       <div *ngIf="formulario.controls['nombreJuego'].errors?.required && attemptedToPost"
@@ -46,7 +32,8 @@
         <div class="input-group col-md-8">
           <input class="form-control" type="text"
                  formControlName="desarrollador"
-                 [ngClass]="{ 'is-invalid' : !formulario.get('desarrollador').valid && attemptedToPost}" />
+                 [ngClass]="{ 'is-invalid' : !formulario.get('desarrollador').valid && attemptedToPost}"
+                 [(ngModel)] = "game.developer" />
         </div>
       </div>
       <div *ngIf="formulario.controls['desarrollador'].errors?.required && attemptedToPost"
@@ -61,7 +48,8 @@
         <div class="input-group col-md-8">
           <input class="form-control" type="text"
                  formControlName="fechaLanzamiento"
-                 [ngClass]="{ 'is-invalid' : !formulario.get('fechaLanzamiento').valid && attemptedToPost}" />
+                 [ngClass]="{ 'is-invalid' : !formulario.get('fechaLanzamiento').valid && attemptedToPost}" 
+                 [(ngModel)] = "game.releaseDate"/>
         </div>
       </div>
       <div *ngIf="formulario.controls['fechaLanzamiento'].errors?.required && attemptedToPost"
@@ -76,7 +64,8 @@
         <div class="input-group col-md-8">
           <input class="form-control" type="text"
                  formControlName="urlImagen"
-                 [ngClass]="{ 'is-invalid' : !formulario.get('urlImagen').valid && attemptedToPost}" />
+                 [ngClass]="{ 'is-invalid' : !formulario.get('urlImagen').valid && attemptedToPost}" 
+                 [(ngModel)] = "game.image" />
         </div>
       </div>
       <div *ngIf="formulario.controls['urlImagen'].errors?.required && attemptedToPost"
@@ -91,7 +80,8 @@
         <div class="input-group col-md-8">
           <input class="form-control" type="text"
                  formControlName="idConsola"
-                 [ngClass]="{ 'is-invalid' : !formulario.get('idConsola').valid && attemptedToPost}" />
+                 [ngClass]="{ 'is-invalid' : !formulario.get('idConsola').valid && attemptedToPost}" 
+                 [(ngModel)] = "game.consoleID"/>
         </div>
       </div>
       <div *ngIf="formulario.controls['idConsola'].errors?.required && attemptedToPost"

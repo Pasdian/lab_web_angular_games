@@ -22,7 +22,7 @@ export class GamesService {
   }
 
   createGame(game: Game){
-    return this.http.post(`${this.API_URI}/consolas`, game)
+    return this.http.post(`${this.API_URI}/juegos`, game)
   }
 
   findGame(palabras: string): Observable<Game> {

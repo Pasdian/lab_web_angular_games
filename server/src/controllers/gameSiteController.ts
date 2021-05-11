@@ -34,7 +34,7 @@ class GamesSiteController {
   }
 
   public async createConsole(req: Request, res: Response): Promise<void> {
-    await pool.query('INSERT INTO console set ?', [req.body]);
+    await pool.query('INSERT INTO consoles set ?', [req.body]);
     res.json({ message: 'Console Created' });
   }
 
