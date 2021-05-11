@@ -63,29 +63,25 @@ class GamesSiteController {
   // Search Response Methods
 
   public async findConsole(req: Request, res: Response): Promise<any> {
+    const { keyword }  = req.params;
     const consoles = await pool.query(
-      'SELECT * FROM consoles WHERE consoleName LIKE %?% ',
-      [req.body]
+      `SELECT * FROM consoles WHERE consoleName LIKE "%${keyword}%"`
     );
-    // if (consoles.length > 0) {
-    //   return res.json(consoles);
-    // }
-    // res.status(404).json({ message: 'Console does not exist' });
-    return res.json(consoles);
+    if (consoles.length > 0) {
+      return res.json(consoles);
+    }
+    res.status(404).json({ message: 'Console does not exist' });
   }
 
   public async findGame(req: Request, res: Response): Promise<any> {
-    const { searchWords } = req.params;
+    const { keyword }  = req.params;
     const consoles = await pool.query(
-      'SELECT * FROM games WHERE gameName LIKE "?"',
-      [searchWords]
+      `SELECT * FROM games WHERE gameName LIKE "%${keyword}%"`
     );
-    if (consoles.length > 1) {
+    if (consoles.length > 0) {
       return res.json(consoles);
-    } else if (consoles.length == 1) {
-      return res.json(consoles[0]);
     }
-    res.status(404).json({ message: 'Console does not exist' });
+    res.status(404).json({ message: 'Game does not exist' });
   }
 
   // Blog Methods

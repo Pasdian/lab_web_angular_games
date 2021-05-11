@@ -75,25 +75,22 @@ class GamesSiteController {
     // Search Response Methods
     findConsole(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const consoles = yield database_1.default.query('SELECT * FROM consoles WHERE consoleName LIKE %?% ', [req.body]);
-            // if (consoles.length > 0) {
-            //   return res.json(consoles);
-            // }
-            // res.status(404).json({ message: 'Console does not exist' });
-            return res.json(consoles);
+            const { keyword } = req.params;
+            const consoles = yield database_1.default.query(`SELECT * FROM consoles WHERE consoleName LIKE "%${keyword}%"`);
+            if (consoles.length > 0) {
+                return res.json(consoles);
+            }
+            res.status(404).json({ message: 'Console does not exist' });
         });
     }
     findGame(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { searchWords } = req.params;
-            const consoles = yield database_1.default.query('SELECT * FROM games WHERE gameName LIKE "?"', [searchWords]);
-            if (consoles.length > 1) {
+            const { keyword } = req.params;
+            const consoles = yield database_1.default.query(`SELECT * FROM games WHERE gameName LIKE "%${keyword}%"`);
+            if (consoles.length > 0) {
                 return res.json(consoles);
             }
-            else if (consoles.length == 1) {
-                return res.json(consoles[0]);
-            }
-            res.status(404).json({ message: 'Console does not exist' });
+            res.status(404).json({ message: 'Game does not exist' });
         });
     }
     // Blog Methods

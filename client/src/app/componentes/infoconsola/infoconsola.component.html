@@ -4,5 +4,5 @@
     <p class="lead">{{ consola.description}}</p>
     <p class="lead">{{ consola.features}}</p>
   </div>
-  <a [routerLink]="['/juegosconsola']" class="btn btn-primary">Juegos</a>
+  <a [routerLink]="['/juegosconsola', consola.consoleID, 'juegos']" class="btn btn-primary">Juegos</a>
 </div>

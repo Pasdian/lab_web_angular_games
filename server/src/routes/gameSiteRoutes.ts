@@ -20,8 +20,8 @@ class GameSiteRoutes {
     this.router.get("/juegos/:id", gamesSiteController.getGame);
     this.router.post('/juegos', gamesSiteController.createGame)
 
-    this.router.get("/resconsolas", gamesSiteController.findConsole);
-    this.router.get("/resjuegos", gamesSiteController.findGame);
+    this.router.get("/resconsolas/:keyword", gamesSiteController.findConsole);
+    this.router.get("/resjuegos/:keyword", gamesSiteController.findGame);
 
     this.router.post('/blog', gamesSiteController.createPost)
     this.router.get('/blog', gamesSiteController.getPosts)

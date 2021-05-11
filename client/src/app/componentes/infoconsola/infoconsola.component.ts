@@ -15,7 +15,6 @@ export class InfoconsolaComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private consolasService:ConsolasService) {
 
     this.activatedRoute.params.subscribe(params =>{
-      console.log(params['id']);
       this.consolasService.getConsole(params['id']).subscribe(
         res => {
           this.consola = res

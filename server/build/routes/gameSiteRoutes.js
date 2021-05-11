@@ -18,8 +18,8 @@ class GameSiteRoutes {
         this.router.get('/juegos', gameSiteController_1.default.listGames);
         this.router.get("/juegos/:id", gameSiteController_1.default.getGame);
         this.router.post('/juegos', gameSiteController_1.default.createGame);
-        this.router.get("/resconsolas", gameSiteController_1.default.findConsole);
-        this.router.get("/resjuegos", gameSiteController_1.default.findGame);
+        this.router.get("/resconsolas/:keyword", gameSiteController_1.default.findConsole);
+        this.router.get("/resjuegos/:keyword", gameSiteController_1.default.findGame);
         this.router.post('/blog', gameSiteController_1.default.createPost);
         this.router.get('/blog', gameSiteController_1.default.getPosts);
     }

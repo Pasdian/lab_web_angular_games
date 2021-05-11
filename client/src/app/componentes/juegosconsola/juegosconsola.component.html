@@ -4,8 +4,8 @@
   <div class="card" style="width: 18rem;" *ngFor="let game of games; let i = index">
     <img class="card-img-top" [src]="game.image" [alt]="game.name">
     <div class="card-body">
-      <h5 class="card-title">{{ game.name }}</h5>
-      <a [routerLink]="['/juego', i]" class="btn btn-primary">Ficha Técnica</a>
+      <h5 class="card-title">{{ game.gameName }}</h5>
+      <a [routerLink]="['/juego', ]" class="btn btn-primary">Ficha Técnica</a>
     </div>
   </div>
 </div>
