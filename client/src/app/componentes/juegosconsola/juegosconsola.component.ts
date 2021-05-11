@@ -16,7 +16,6 @@ export class JuegosconsolaComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params =>{
-      console.log("here", params['id']);
       this.consolasService.getConsoleGames(params['id']).subscribe(
         res => {
           this.games = res

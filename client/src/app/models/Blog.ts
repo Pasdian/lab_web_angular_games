@@ -1,7 +1,7 @@
 export interface Blog{
 
   entryID?: number,
-  entryDate?: string,
+  entryDate?: Date,
   username?: string,
   entryText?: string,
 }

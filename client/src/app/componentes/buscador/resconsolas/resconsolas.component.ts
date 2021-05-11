@@ -14,13 +14,15 @@ export class ResconsolasComponent implements OnInit {
     private consolasService: ConsolasService
   ) { }
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params) => {
-      console.log(params['palabrasBusqueda']);
+    this.activatedRoute.params.subscribe((params) =>{
+      console.log("OnInit", params['palabrasBusqueda']);
       this.palabrasBusqueda = params['palabrasBusqueda'];
-      this.consolas = this.consolasService.findConsole(
-        this.palabrasBusqueda
+      this.consolasService.findConsole(this.palabrasBusqueda).subscribe(
+        res => {
+          this.consolas = res
+        },
+        err => console.log(err)
       );
-      console.log(this.consolas);
-    });
+    })
   }
 }

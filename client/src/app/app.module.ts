@@ -20,6 +20,8 @@ import { AdministracionComponent } from './componentes/administracion/administra
 import { FormConsolaComponent } from './componentes/administracion/form-consola/form-consola.component';
 import { FormJuegoComponent } from './componentes/administracion/form-juego/form-juego.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GamesService } from './servicios/games.service';
+import { BlogService } from './servicios/blog.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { HttpClientModule } from '@angular/common/http';
     APP_ROUTING
   ],
   providers: [
-    ConsolasService
+    ConsolasService,
+    GamesService,
+    BlogService
   ],
   bootstrap: [AppComponent]
 })

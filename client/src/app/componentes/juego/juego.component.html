@@ -1,6 +1,8 @@
-<img class="card-img-top" [src]="game.image" [alt]="game.gameName">
-<ul class="list-group">
-  <li class="list-group-item">Nombre: {{ game.gameName }}</li>
-  <li class="list-group-item">Developer: {{ game.developer }}</li>
-  <li class="list-group-item">Lanzamiento: {{ game.releaseDate }}</li>
-</ul>
+<h1>{{game.gameName}}</h1>
+<div class="container">
+  <img width="500" [src]="game.image" [alt]="game.gameName" />
+  <ul class="list-group">
+    <li class="list-group-item">Developer: {{ game.developer }}</li>
+    <li class="list-group-item">Lanzamiento: {{ game.releaseDate }}</li>
+  </ul>
+</div>

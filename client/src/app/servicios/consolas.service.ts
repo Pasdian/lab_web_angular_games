@@ -25,11 +25,11 @@ export class ConsolasService {
     return this.http.get(`${this.API_URI}/consolas/${id}/juegos`)
   }
 
-  createConsole(conosle: Console){
+  createConsole(console: Console){
     return this.http.post(`${this.API_URI}/consolas`, console)
   }
 
   findConsole(palabras: string){
-    return this.http.get(`${this.API_URI}/resconsolas`)
+    return this.http.get(`${this.API_URI}/resconsolas/${palabras}`)
   }
 }

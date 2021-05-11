@@ -4,12 +4,12 @@
 <hr />
 <div class="row">
     <div class="card" style="width: 18rem" *ngFor="let consola of consolas; let i = index">
-        <img class="card-img-top" [src]="consola.imagen" [alt]="consola.nombre" />
+        <img class="card-img-top" [src]="consola.image" [alt]="consola.consoleName" />
         <div class="card-body">
-            <h5 class="card-title">{{ consola.nombre }}</h5>
-            <p class="card-text">{{ consola.descripcion }}</p>
+            <h5 class="card-title">{{ consola.consoleName }}</h5>
+            <p class="card-text">{{ consola.consoleName }}</p>
             <!--Utilizamos '/infoconsola' en lugar de 'infoconsola' para evitar que en elarchivo 'app.routes.ts' se tenga que declarar como 'consolas/infoconsola/:id' detal forma que la URL quedaría como http://localhost:4200/infoconsola/0 --><a
-                [routerLink]="['/infoconsola', consola.id]" class="btn btn-primary">Información</a>
+                [routerLink]="['/infoconsola', consola.consoleID]" class="btn btn-primary">Información</a>
         </div>
     </div>
 </div>

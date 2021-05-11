@@ -26,6 +26,6 @@ export class GamesService {
   }
 
   findGame(palabras: string): Observable<Game> {
-    return this.http.get(`${this.API_URI}/resjuegos`)
+    return this.http.get(`${this.API_URI}/resjuegos/${palabras}`)
   }
 }

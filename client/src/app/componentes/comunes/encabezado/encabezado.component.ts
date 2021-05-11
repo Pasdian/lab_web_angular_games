@@ -9,11 +9,11 @@ export class EncabezadoComponent implements OnInit {
   constructor(private router: Router) { }
   ngOnInit() { }
   buscarConsolas(palabras: string) {
-    console.log(palabras);
+    console.log("NavBar", palabras);
     this.router.navigate(['/resconsolas', palabras]);
   }
   buscarJuegos(palabras: string){
-    console.log(palabras);
+    console.log("NavBar", palabras);
     this.router.navigate(['/resjuegos', palabras]);
   }
 }

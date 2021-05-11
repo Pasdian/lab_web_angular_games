@@ -5,7 +5,7 @@
     <img class="card-img-top" [src]="game.image" [alt]="game.name">
     <div class="card-body">
       <h5 class="card-title">{{ game.gameName }}</h5>
-      <a [routerLink]="['/juego', ]" class="btn btn-primary">Ficha Técnica</a>
+      <a [routerLink]="['/juego', game.gameID ]" class="btn btn-primary">Ficha Técnica</a>
     </div>
   </div>
 </div>
