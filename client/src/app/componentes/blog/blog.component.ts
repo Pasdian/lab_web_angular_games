@@ -14,6 +14,7 @@ import { Blog } from "../../models/Blog";
 })
 export class BlogComponent implements OnInit {
 
+  posts: any;
 
   post: Blog = {
     entryID: 0,
@@ -25,7 +26,7 @@ export class BlogComponent implements OnInit {
   formulario: FormGroup;
   attemptedToPublish = false;
   fechaPublicacion = new Date();
-  posts = [];
+
 
   constructor(private blogService: BlogService) {
     this.formulario = new FormGroup({
@@ -34,7 +35,16 @@ export class BlogComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.blogService.getBlogPosts().subscribe(
+      res => {
+        this.posts = res
+      },
+      err => {
+        console.log(err)
+      }
+    )
+
   }
 
   guardar() {

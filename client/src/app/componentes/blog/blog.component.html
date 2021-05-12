@@ -65,14 +65,16 @@
 
 </form>
 
+<!-- POSTS GET -->
+
 <hr />
 <h1>Posts</h1>
 <div class="row">
   <div class="card" style="width: 18rem" *ngFor="let post of posts; let i = index">
       <div class="card-body">
-          <h5 class="card-title">{{ post.nombreUsuario }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Publicado el: {{ fechaPublicacion | date:'shortDate' }} a las {{ fechaPublicacion | date:'shortTime' }}</h6>
-          <p class="card-text">{{ post.entrada }}</p>
+          <h5 class="card-title">{{ post.username }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Publicado el: {{ post.entryDate | date:'shortDate' }} a las {{ post.entryDate | date:'shortTime' }}</h6>
+          <p class="card-text">{{ post.entryText }}</p>
       </div>
   </div>
 </div>
