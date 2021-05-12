@@ -22,6 +22,13 @@ CREATE TABLE `Blog_Entries` (
   `username` VARCHAR(10) NOT NULL,
   `entryText` VARCHAR(140)
 );
+CREATE TABLE `users`(
+  `userID` INT NOT NULL PRIMARY KEY,
+  `name` VARCHAR(25),
+  `firstLastName` VARCHAR(25),
+  `secondLastName` VARCHAR(25),
+  `password` VARCHAR(25) NOT NULL
+);
 -- CONSOLES INSERTS
 insert into consoles (consoleName, description, features, image)
 values (
@@ -213,3 +220,34 @@ VALUES (
     "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png",
     "1"
   );
+-- Users INSERTS
+INSERT into users (
+    userID,
+    name,
+    firstLastName,
+    secondLastName,
+    password
+  )
+values (
+    1,
+    "Roberto",
+    "Tellez",
+    "Perezyera",
+    "fur-fox-sake"
+  );
+INSERT into users (
+    userID,
+    name,
+    firstLastName,
+    secondLastName,
+    password
+  )
+values (2, "Irving", "Fuentes", "Aguilera", "admin");
+INSERT into users (
+    userID,
+    name,
+    firstLastName,
+    secondLastName,
+    password
+  )
+values (3, "Javier", "Pascal", "Flores", "baconPancakes");

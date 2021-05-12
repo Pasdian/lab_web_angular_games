@@ -25,6 +25,9 @@ class GameSiteRoutes {
 
     this.router.post('/blog', gamesSiteController.createPost)
     this.router.get('/blog', gamesSiteController.getPosts)
+
+    this.router.get('/users', gamesSiteController.getUsers)
+    this.router.post('/users', gamesSiteController.authUser)
   }
 }
 

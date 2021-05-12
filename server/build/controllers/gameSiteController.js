@@ -106,6 +106,22 @@ class GamesSiteController {
             res.json(posts);
         });
     }
+    //Users Methods
+    getUsers(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const users = yield database_1.default.query('SELECT * FROM users;');
+            res.json(users);
+        });
+    }
+    authUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const consoles = yield database_1.default.query(`SELECT * FROM users WHERE (userID = "${req.body['userID']}" AND password = "${req.body['password']}")`);
+            if (consoles.length > 0) {
+                return res.json(consoles);
+            }
+            res.status(404).json({ message: 'User does not exist' });
+        });
+    }
 }
 const gamesSiteController = new GamesSiteController();
 exports.default = gamesSiteController;

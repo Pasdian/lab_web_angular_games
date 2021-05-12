@@ -22,6 +22,8 @@ class GameSiteRoutes {
         this.router.get("/resjuegos/:keyword", gameSiteController_1.default.findGame);
         this.router.post('/blog', gameSiteController_1.default.createPost);
         this.router.get('/blog', gameSiteController_1.default.getPosts);
+        this.router.get('/users', gameSiteController_1.default.getUsers);
+        this.router.post('/users', gameSiteController_1.default.authUser);
     }
 }
 const gameSiteRoutes = new GameSiteRoutes();

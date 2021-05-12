@@ -94,6 +94,20 @@ class GamesSiteController {
     const posts = await pool.query('SELECT * FROM Blog_Entries;');
     res.json(posts);
   }
+
+  //Users Methods
+  public async getUsers(req: Request, res: Response): Promise<any> {
+    const users = await pool.query('SELECT * FROM users;');
+    res.json(users);
+  }
+
+  public async authUser(req: Request, res: Response): Promise<any> {
+    const consoles = await pool.query(`SELECT * FROM users WHERE (userID = "${req.body['userID']}" AND password = "${req.body['password']}")`);
+    if (consoles.length > 0) {
+      return res.json(consoles);
+    }
+    res.status(404).json({ message: 'User does not exist' });
+  }
 }
 
 const gamesSiteController = new GamesSiteController();
