@@ -11,6 +11,7 @@ import { ResconsolasComponent } from './componentes/buscador/resconsolas/rescons
 import { ResjuegosComponent } from './componentes/buscador/resjuegos/resjuegos.component';
 import { BlogComponent } from './componentes/blog/blog.component';
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
+import { ChatComponent } from './componentes/chat/chat.component';
 
 
 
@@ -33,6 +34,7 @@ const APP_ROUTES: Routes = [
   { path: 'resjuegos/:palabrasBusqueda',component: ResjuegosComponent},
   { path: 'blog', component: BlogComponent },
   { path: 'administracion', component: AdministracionComponent },
+  { path: 'chat', component: ChatComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'principal' },
 ];

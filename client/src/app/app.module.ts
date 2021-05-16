@@ -22,6 +22,9 @@ import { FormJuegoComponent } from './componentes/administracion/form-juego/form
 import { HttpClientModule } from '@angular/common/http';
 import { GamesService } from './servicios/games.service';
 import { BlogService } from './servicios/blog.service';
+import { ChatComponent } from './componentes/chat/chat.component';
+import { MensajeComponent } from './componentes/chat/mensaje/mensaje.component';
+import { MensajeschatComponent } from './componentes/chat/mensajeschat/mensajeschat.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { BlogService } from './servicios/blog.service';
     BlogComponent,
     AdministracionComponent,
     FormConsolaComponent,
-    FormJuegoComponent
+    FormJuegoComponent,
+    ChatComponent,
+    MensajeComponent,
+    MensajeschatComponent
   ],
   imports: [
     BrowserModule,
