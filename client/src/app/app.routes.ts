@@ -17,6 +17,8 @@ import { ChatComponent } from './componentes/chat/chat.component';
 
 const APP_ROUTES: Routes = [
   //Se inicializan todas las rutas que vamos a utilizar.
+  { path: '', pathMatch: 'full', redirectTo: 'principal' },
+
   { path: 'principal', component: PrincipalComponent },
   { path: 'acercade', component: AcercadeComponent },
   { path: 'consolas', component: ConsolasComponent },

@@ -29,6 +29,7 @@ import { ConsolasService } from './servicios/consolas.service';
 import { GamesService } from './servicios/games.service';
 import { BlogService } from './servicios/blog.service';
 import { ChatService } from './servicios/chat.service';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 const config: SocketIoConfig = { url: 'http://localhost:8585', options: {} };
@@ -51,7 +52,8 @@ const config: SocketIoConfig = { url: 'http://localhost:8585', options: {} };
     FormJuegoComponent,
     ChatComponent,
     MensajeComponent,
-    MensajeschatComponent
+    MensajeschatComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
