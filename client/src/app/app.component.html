@@ -1,8 +1,10 @@
 
 
-<app-login *ngIf="userIsAuthenticated"></app-login>
+<!-- <app-login *ngIf="userIsAuthenticated"></app-login> -->
+<app-login></app-login>
 
 <div *ngIf="!userIsAuthenticated">
+
   <app-encabezado></app-encabezado>
   <div class="container">
     <!-- Le indicamos a Angular que aquí queremos mostrar las rutas que definamos. -->
