@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ChatService } from '../../../servicios/chat.service';
+
 @Component({
   selector: 'app-mensaje',
   templateUrl: './mensaje.component.html',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MensajeComponent implements OnInit {
 
-  constructor() { }
+  // TODO cambiar por el id del usuario en la DB
+  userId = Math.floor(Math.random() * 9999);
+
+  constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
+  }
+
+  // TODO if theres data type issues, try with string, else just leave any as datatype
+  sendMessage(message: String) {
+    message = `[${this.userId}]: ${message}`;
+    this.chatService.writeChat(message);
   }
 
 }

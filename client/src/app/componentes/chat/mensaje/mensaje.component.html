@@ -1,1 +1,15 @@
-<p>mensaje works!</p>
+<form class="form-inline my-2 my-lg-0">
+  <input
+    class="form-control mr-sm-2"
+    type="text"
+    placeholder="Comparte algo con el mundo"
+    #mensaje
+  />
+  <button
+    class="btn btn-outline-success my-2 my-sm-0"
+    type="button"
+    (click)="sendMessage(mensaje.value)"
+  >
+    Enviar
+  </button>
+</form>

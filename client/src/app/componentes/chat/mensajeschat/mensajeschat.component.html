@@ -1,1 +1,5 @@
-<p>mensajeschat works!</p>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item" *ngFor="let mensaje of estadoChat?.slice().reverse()">
+    {{ mensaje }}
+  </li>
+</ul>
