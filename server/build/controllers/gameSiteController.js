@@ -115,9 +115,9 @@ class GamesSiteController {
     }
     authUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const consoles = yield database_1.default.query(`SELECT * FROM users WHERE (userID = "${req.body['userID']}" AND password = "${req.body['password']}")`);
-            if (consoles.length > 0) {
-                return res.json(consoles);
+            const users = yield database_1.default.query(`SELECT * FROM users WHERE (name = "${req.body['name']}" AND password = "${req.body['password']}")`);
+            if (users.length > 0) {
+                return res.json(users);
             }
             res.status(404).json({ message: 'User does not exist' });
         });

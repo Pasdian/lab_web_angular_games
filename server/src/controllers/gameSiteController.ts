@@ -102,9 +102,9 @@ class GamesSiteController {
   }
 
   public async authUser(req: Request, res: Response): Promise<any> {
-    const consoles = await pool.query(`SELECT * FROM users WHERE (userID = "${req.body['userID']}" AND password = "${req.body['password']}")`);
-    if (consoles.length > 0) {
-      return res.json(consoles);
+    const users = await pool.query(`SELECT * FROM users WHERE (name = "${req.body['name']}" AND password = "${req.body['password']}")`);
+    if (users.length > 0) {
+      return res.json(users);
     }
     res.status(404).json({ message: 'User does not exist' });
   }

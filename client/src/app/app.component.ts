@@ -1,28 +1,53 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from './models/User';
+import { AuthService } from './servicios/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'angularservicios';
 
   userIsAuthenticated = false;
+  name = sessionStorage.getItem('name');
+  password = sessionStorage.getItem('password');
 
-  ngOnInit() {
-    console.log('here');
-    let username = sessionStorage.getItem('username');
-    let password = sessionStorage.getItem('password');
-    if (username != undefined && password != undefined) {
-      console.log('should change');
-      this.userIsAuthenticated = true;
-    }
-    this.userIsAuthenticated = false;
+  constructor(private authService: AuthService){
+
   }
 
+  user: User = {
+    userID: 0,
+    name: this.name,
+    firstLastName: '',
+    secondLastName: '',
+    password: this.password,
+  };
 
+  ngOnInit() {
+    this.auth();
+    console.log('Username', this.name);
+    console.log('Password', this.password);
 
+  }
 
-
+  auth() {
+    delete this.user.firstLastName;
+    delete this.user.secondLastName;
+    delete this.user.userID;
+    this.authService.loginUser(this.user).subscribe(
+      (res) => {
+        if (this.name !== res[0].name && this.password !== res[0].password) {
+          console.log("User Authenticated")
+          this.userIsAuthenticated = true;
+        }
+        else{
+          this.userIsAuthenticated = false
+        }
+      },
+      (err) => console.error(err)
+    );
+  }
 }
