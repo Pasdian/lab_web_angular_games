@@ -3,9 +3,10 @@ import { User } from './models/User';
 import { AuthService } from './servicios/auth.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  // selector: 'app-root',
+  selector: 'app-login',
+  templateUrl: './componentes/login/login.component.html',
+  styleUrls: ['./componentes/login/login.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'angularservicios';

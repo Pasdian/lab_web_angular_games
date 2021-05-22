@@ -30,6 +30,7 @@ import { GamesService } from './servicios/games.service';
 import { BlogService } from './servicios/blog.service';
 import { ChatService } from './servicios/chat.service';
 import { LoginComponent } from './componentes/login/login.component';
+import { PortalComponent } from './componentes/portal/portal.component';
 
 
 const config: SocketIoConfig = { url: 'http://localhost:8585', options: {} };
@@ -53,7 +54,8 @@ const config: SocketIoConfig = { url: 'http://localhost:8585', options: {} };
     ChatComponent,
     MensajeComponent,
     MensajeschatComponent,
-    LoginComponent
+    LoginComponent,
+    PortalComponent
   ],
   imports: [
     BrowserModule,
