@@ -47,10 +47,12 @@ export class LoginComponent implements OnInit {
       // TODO primero validar que username y contraseña sean correctos
       sessionStorage.setItem('name', this.loginForm.value.name);
       sessionStorage.setItem('password', this.loginForm.value.password);
+      sessionStorage.setItem('isLoggedFlag', '1');
     } else {
       this.attemptedToLogin = true;
     }
   }
+
   authUser() {
     delete this.user.firstLastName;
     delete this.user.secondLastName;
