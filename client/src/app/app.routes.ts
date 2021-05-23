@@ -12,13 +12,15 @@ import { ResjuegosComponent } from './componentes/buscador/resjuegos/resjuegos.c
 import { BlogComponent } from './componentes/blog/blog.component';
 import { AdministracionComponent } from './componentes/administracion/administracion.component';
 import { ChatComponent } from './componentes/chat/chat.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 
 const APP_ROUTES: Routes = [
   //Se inicializan todas las rutas que vamos a utilizar.
-  { path: '', pathMatch: 'full', redirectTo: 'principal' },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
 
+  { path: 'login', component: LoginComponent },
   { path: 'principal', component: PrincipalComponent },
   { path: 'acercade', component: AcercadeComponent },
   { path: 'consolas', component: ConsolasComponent },
