@@ -17,7 +17,7 @@ export class BlogComponent implements OnInit {
     entryID: 0,
     entryDate: new Date(),
     username: '',
-    entryText: ',',
+    entryText: '',
   };
 
   formulario: FormGroup;
