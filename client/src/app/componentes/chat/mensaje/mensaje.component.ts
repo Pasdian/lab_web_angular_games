@@ -10,7 +10,7 @@ import { ChatService } from '../../../servicios/chat.service';
 export class MensajeComponent implements OnInit {
 
   // TODO cambiar por el id del usuario en la DB
-  userId = sessionStorage.getItem("name")
+  userId = sessionStorage.getItem("userID")
 
   constructor(private chatService: ChatService) { }
 
