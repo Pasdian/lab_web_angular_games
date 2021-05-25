@@ -10,10 +10,8 @@
         placeholder="Tu clave o ID de usuario"
         formControlName="name"
         name="name"
-        [(ngModel)] = "user.name"
-        [ngClass]="{
-          'is-invalid': !loginForm.get('name').valid && attemptedToLogin
-        }"
+        [(ngModel)]="user.name"
+        [ngClass]="{'is-invalid': !loginForm.get('name').valid && attemptedToLogin}"
       />
     </div>
   </div>
@@ -45,7 +43,7 @@
         placeholder="Tu contraseña super segura"
         formControlName="password"
         name="password"
-        [(ngModel)] = "user.password"
+        [(ngModel)]="user.password"
         [ngClass]="{
           'is-invalid': !loginForm.get('password').valid && attemptedToLogin
         }"
@@ -79,7 +77,6 @@
         class="btn btn-outline-primary"
         [disabled]="!loginForm.valid && attemptedToLogin"
         (click)="authUser()"
-
       >
         Iniciar sesión
       </button>

@@ -23,10 +23,7 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-    ) {
+  constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       name: new FormControl('', [
         Validators.required,
@@ -63,8 +60,8 @@ export class LoginComponent implements OnInit {
   authUser() {
     console.log('enter auth user');
     sessionStorage.setItem('isLoggedFlag', '1');
+    if (this.loginForm.valid) {
     this.router.navigateByUrl('/principal');
-
 
     delete this.user.firstLastName;
     delete this.user.secondLastName;
@@ -77,4 +74,5 @@ export class LoginComponent implements OnInit {
       (err) => console.error(err)
     );
   }
+}
 }
