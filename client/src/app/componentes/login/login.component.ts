@@ -79,7 +79,10 @@ export class LoginComponent implements OnInit {
           // redirect
           this.router.navigateByUrl('/principal');
         },
-        (err) => console.error(err)
+        (err) => {
+          alert('Usuario o contraseña inválidos. Intenta de nuevo.');
+          console.error(err)
+        }
       );
     } else {
       console.log('form is NOT valid');
