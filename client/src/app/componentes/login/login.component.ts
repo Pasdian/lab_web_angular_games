@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Route } from '@angular/router';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/models/User';
@@ -22,7 +23,10 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ) {
     this.loginForm = new FormGroup({
       name: new FormControl('', [
         Validators.required,
@@ -40,7 +44,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
+    console.log('entered login');
     if (this.loginForm.valid) {
+      console.log('form is valid');
       console.log(this.loginForm.value);
       console.log(this.loginForm.value.name);
       console.log(this.loginForm.value.password);
@@ -49,11 +55,17 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('password', this.loginForm.value.password);
       sessionStorage.setItem('isLoggedFlag', '1');
     } else {
+      console.log('form is NOT valid');
       this.attemptedToLogin = true;
     }
   }
 
   authUser() {
+    console.log('enter auth user');
+    sessionStorage.setItem('isLoggedFlag', '1');
+    this.router.navigateByUrl('/principal');
+
+
     delete this.user.firstLastName;
     delete this.user.secondLastName;
     delete this.user.userID;

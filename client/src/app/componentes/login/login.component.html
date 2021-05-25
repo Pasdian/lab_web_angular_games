@@ -41,7 +41,7 @@
     <div class="col-8">
       <input
         class="form-control"
-        type="text"
+        type="password"
         placeholder="Tu contraseña super segura"
         formControlName="password"
         name="password"
@@ -79,7 +79,7 @@
         class="btn btn-outline-primary"
         [disabled]="!loginForm.valid && attemptedToLogin"
         (click)="authUser()"
-        [routerLink]="['principal']"
+
       >
         Iniciar sesión
       </button>
