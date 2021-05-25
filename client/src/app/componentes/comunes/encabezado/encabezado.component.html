@@ -26,6 +26,9 @@
           <a class="nav-link" [routerLink]="['chat']">Chat</a>
         </li>
       </ul>
+      <h6 class="my-2 my-lg-0 mr-sm-2">
+        Hola {{ displayName }} ({{ displayID }})
+      </h6>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Palabras   de   Búsqueda" #palabrasBusqueda />
         <button class="btn btn-outline-success my-2 my-sm-0" type="button"

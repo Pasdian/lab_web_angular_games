@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Route } from '@angular/router';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User } from 'src/app/models/User';
 
+import { User } from 'src/app/models/User';
 import { AuthService } from '../../servicios/auth.service';
 
 @Component({
@@ -23,7 +22,10 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ) {
     this.loginForm = new FormGroup({
       name: new FormControl('', [
         Validators.required,
@@ -40,39 +42,48 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login() {
-    console.log('entered login');
+  // login() {
+  //   console.log('entered login');
+  //   if (this.loginForm.valid) {
+  //     console.log('form is valid');
+  //     console.log(this.loginForm.value);
+  //     console.log(this.loginForm.value.name);
+  //     console.log(this.loginForm.value.password);
+  //   } else {
+  //     console.log('form is NOT valid');
+  //     this.attemptedToLogin = true;
+  //   }
+  // }
+
+  authUser() {
+    console.log('enter auth user');
     if (this.loginForm.valid) {
-      console.log('form is valid');
-      console.log(this.loginForm.value);
-      console.log(this.loginForm.value.name);
-      console.log(this.loginForm.value.password);
-      // TODO primero validar que username y contraseña sean correctos
-      sessionStorage.setItem('name', this.loginForm.value.name);
-      sessionStorage.setItem('password', this.loginForm.value.password);
-      sessionStorage.setItem('isLoggedFlag', '1');
+
+
+      delete this.user.firstLastName;
+      delete this.user.secondLastName;
+      delete this.user.userID;
+
+      console.log('******USER:', this.user);
+
+      this.authService.loginUser(this.user).subscribe(
+        (res) => {
+          console.log('****TODO',res[0]);
+          console.log('****TODO',res[0].userID);
+          // add user ID
+          sessionStorage.setItem('userID', res[0].userID);
+          // add user name
+          sessionStorage.setItem('displayName', res[0].name);
+          // change auth flag
+          sessionStorage.setItem('isLoggedFlag', '1');
+          // redirect
+          this.router.navigateByUrl('/principal');
+        },
+        (err) => console.error(err)
+      );
     } else {
       console.log('form is NOT valid');
       this.attemptedToLogin = true;
     }
   }
-
-  authUser() {
-    console.log('enter auth user');
-    sessionStorage.setItem('isLoggedFlag', '1');
-    if (this.loginForm.valid) {
-    this.router.navigateByUrl('/principal');
-
-    delete this.user.firstLastName;
-    delete this.user.secondLastName;
-    delete this.user.userID;
-
-    this.authService.loginUser(this.user).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => console.error(err)
-    );
-  }
-}
 }

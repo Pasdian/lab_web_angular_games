@@ -8,23 +8,25 @@ import { Router } from '@angular/router';
 export class EncabezadoComponent implements OnInit, DoCheck {
 
   isLoggedIn = false;
+  displayName = '';
+  displayID = '';
 
   constructor(private router: Router) { }
 
   ngOnInit() { }
 
   ngDoCheck() {
-    console.log('enter doCheck');
     let isLoggedFlag = sessionStorage.getItem('isLoggedFlag');
     console.log('FLAG:', isLoggedFlag, typeof(isLoggedFlag));
     if (isLoggedFlag) {
       console.log('success! data found!');
       this.isLoggedIn = true;
+      this.displayName = sessionStorage.getItem('displayName');
+      this.displayID = sessionStorage.getItem('userID');
     }
     if (!isLoggedFlag) {
       console.log('no data in sess storage');
     }
-    console.log('exit doCheck');
   }
 
   buscarConsolas(palabras: string) {
