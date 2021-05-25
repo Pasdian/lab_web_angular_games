@@ -62,28 +62,28 @@ export class BlogComponent implements OnInit {
 
       console.log('post to save:', this.post);
 
-      // this.blogService.createBlogPost(this.post).subscribe(
-      //   (res) => {
-      //     console.log(res);
-      //   },
-      //   (err) => console.error(err)
-      // );
+      this.blogService.createBlogPost(this.post).subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (err) => console.error('Error guardando blog post:', err)
+      );
     } else {
       this.attemptedToPublish = true;
       console.log(this.formulario.valid);
     }
   }
 
-  saveNewPost() {
-    console.log('should not enter here');
-    delete this.post.entryID;
-    delete this.post.entryDate;
+  // saveNewPost() {
+  //   console.log('should not enter here');
+  //   delete this.post.entryID;
+  //   delete this.post.entryDate;
 
-    this.blogService.createBlogPost(this.post).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => console.error(err)
-    );
-  }
+  //   this.blogService.createBlogPost(this.post).subscribe(
+  //     (res) => {
+  //       console.log(res);
+  //     },
+  //     (err) => console.error(err)
+  //   );
+  // }
 }
