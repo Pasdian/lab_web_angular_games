@@ -52,11 +52,22 @@ export class BlogComponent implements OnInit {
 
   guardar() {
     if (this.formulario.valid) {
-      console.log(this.formulario.valid);
-      console.log(this.formulario.value);
-      console.log(typeof this.formulario.value);
+      // console.log(this.formulario.valid);
+      // console.log(this.formulario.value);
+      // console.log(typeof this.formulario.value);
       this.fechaPublicacion = new Date();
       this.posts.push(this.formulario.value);
+      delete this.post.entryID;
+      delete this.post.entryDate;
+
+      console.log('post to save:', this.post);
+
+      // this.blogService.createBlogPost(this.post).subscribe(
+      //   (res) => {
+      //     console.log(res);
+      //   },
+      //   (err) => console.error(err)
+      // );
     } else {
       this.attemptedToPublish = true;
       console.log(this.formulario.valid);
@@ -64,6 +75,7 @@ export class BlogComponent implements OnInit {
   }
 
   saveNewPost() {
+    console.log('should not enter here');
     delete this.post.entryID;
     delete this.post.entryDate;
 

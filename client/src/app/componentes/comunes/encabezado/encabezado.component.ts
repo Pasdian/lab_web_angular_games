@@ -17,15 +17,15 @@ export class EncabezadoComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     let isLoggedFlag = sessionStorage.getItem('isLoggedFlag');
-    console.log('FLAG:', isLoggedFlag, typeof(isLoggedFlag));
+    // console.log('FLAG:', isLoggedFlag, typeof(isLoggedFlag));
     if (isLoggedFlag) {
-      console.log('success! data found!');
+      // console.log('success! data found!');
       this.isLoggedIn = true;
       this.displayName = sessionStorage.getItem('displayName');
       this.displayID = sessionStorage.getItem('userID');
     }
     if (!isLoggedFlag) {
-      console.log('no data in sess storage');
+      // console.log('no data in sess storage');
     }
   }
 
