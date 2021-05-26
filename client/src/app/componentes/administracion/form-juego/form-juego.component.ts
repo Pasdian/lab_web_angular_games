@@ -9,9 +9,10 @@ import { GamesService } from '../../../servicios/games.service';
   styleUrls: ['./form-juego.component.css']
 })
 export class FormJuegoComponent implements OnInit {
-  
+
   formulario: FormGroup;
   attemptedToPost = false;
+
   game: Game = {
     gameID: 0,
     gameName: "",
@@ -41,7 +42,7 @@ export class FormJuegoComponent implements OnInit {
       this.gamesService.createGame(this.game)
         .subscribe(
           res => {
-            console.log(res);
+            console.log('Res:', res);
           },
           err => console.error(err)
         );

@@ -4,6 +4,7 @@ USE game_site_db;
 
 -- ############################################
 DROP TABLE IF EXISTS `games`;
+TRUNCATE TABLE `games`;
 CREATE TABLE `games` (
   `gameID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `gameName` varchar(64) NOT NULL,
@@ -15,15 +16,17 @@ CREATE TABLE `games` (
 );
 
 DROP TABLE IF EXISTS `consoles`;
+TRUNCATE TABLE `consoles`;
 CREATE TABLE `consoles` (
   `consoleID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `consoleName` varchar(45) NOT NULL,
   `description` varchar(45) NOT NULL,
   `features` varchar(45) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `image` varchar(256) NOT NULL
   -- PRIMARY KEY (`consoleID`)
 );
 
+TRUNCATE TABLE `Blog_Entries`;
 CREATE TABLE `Blog_Entries` (
   `entryID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `entryDate` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
