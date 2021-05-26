@@ -60,8 +60,6 @@ export class BlogComponent implements OnInit {
       delete this.post.entryID;
       delete this.post.entryDate;
 
-      console.log('post to save:', this.post);
-
       this.blogService.createBlogPost(this.post).subscribe(
         (res) => {
           console.log(res);
