@@ -42,41 +42,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // login() {
-  //   console.log('entered login');
-  //   if (this.loginForm.valid) {
-  //     console.log('form is valid');
-  //     console.log(this.loginForm.value);
-  //     console.log(this.loginForm.value.name);
-  //     console.log(this.loginForm.value.password);
-  //   } else {
-  //     console.log('form is NOT valid');
-  //     this.attemptedToLogin = true;
-  //   }
-  // }
-
   authUser() {
-    console.log('enter auth user');
     if (this.loginForm.valid) {
-
-
       delete this.user.firstLastName;
       delete this.user.secondLastName;
       delete this.user.userID;
 
-      // console.log('******USER:', this.user);
-
       this.authService.loginUser(this.user).subscribe(
         (res) => {
-          console.log('****TODO',res[0]);
-          console.log('****TODO',res[0].userID);
-          // add user ID
           sessionStorage.setItem('userID', res[0].userID);
-          // add user name
           sessionStorage.setItem('displayName', res[0].name);
-          // change auth flag
           sessionStorage.setItem('isLoggedFlag', '1');
-          // redirect
           this.router.navigateByUrl('/principal');
         },
         (err) => {
@@ -85,7 +61,6 @@ export class LoginComponent implements OnInit {
         }
       );
     } else {
-      console.log('form is NOT valid');
       this.attemptedToLogin = true;
     }
   }

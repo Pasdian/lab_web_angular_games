@@ -19,7 +19,6 @@ export class MensajeschatComponent implements OnInit, OnDestroy {
 
   constructor(private chatService: ChatService) {}
   ngOnInit() {
-
     this.chatSub = this.chatService.mensajes.subscribe(chat => this.estadoChat = chat)
     this.chatService.readChat();
   }

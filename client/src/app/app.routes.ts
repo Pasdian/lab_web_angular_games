@@ -19,27 +19,18 @@ import { LoginComponent } from './componentes/login/login.component';
 const APP_ROUTES: Routes = [
   //Se inicializan todas las rutas que vamos a utilizar.
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-
   { path: 'login', component: LoginComponent },
   { path: 'principal', component: PrincipalComponent },
   { path: 'acercade', component: AcercadeComponent },
   { path: 'consolas', component: ConsolasComponent },
-  // { path: 'consolas/infoconsola', component: InfoconsolaComponent },
   { path: 'infoconsola/:id', component: InfoconsolaComponent },
-  {
-    path: 'juegosconsola/:id/juegos',
-    component: JuegosconsolaComponent,
-  },
-  {
-    path: 'juego/:id',
-    component: JuegoComponent,
-  },
+  { path: 'juegosconsola/:id/juegos', component: JuegosconsolaComponent, },
+  { path: 'juego/:id', component: JuegoComponent, },
   { path: 'resconsolas/:palabrasBusqueda', component: ResconsolasComponent },
   { path: 'resjuegos/:palabrasBusqueda',component: ResjuegosComponent},
   { path: 'blog', component: BlogComponent },
   { path: 'administracion', component: AdministracionComponent },
   { path: 'chat', component: ChatComponent },
-
   { path: '**', pathMatch: 'full', redirectTo: 'principal' },
 ];
 

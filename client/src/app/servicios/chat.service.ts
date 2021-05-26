@@ -11,8 +11,6 @@ export class ChatService {
 
   constructor(private socket: Socket) { }
 
-
-  // TODO if theres data type issues, try with string, else just leave any as datatype
   writeChat(message: String) {
     console.log('Enviando mensaje: ' + message);
       this.socket.emit('writeChat', message);
