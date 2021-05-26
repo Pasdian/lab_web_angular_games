@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
       delete this.user.secondLastName;
       delete this.user.userID;
 
-      console.log('******USER:', this.user);
+      // console.log('******USER:', this.user);
 
       this.authService.loginUser(this.user).subscribe(
         (res) => {

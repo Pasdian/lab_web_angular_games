@@ -27,9 +27,9 @@ export class AppComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.auth();
-    console.log('Username', this.name);
-    console.log('Password', this.password);
+    // this.auth();
+    // console.log('Username', this.name);
+    // console.log('Password', this.password);
 
   }
 
